@@ -1,61 +1,213 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 💊 Medify - Pharmacy Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A comprehensive pharmacy management system built with Laravel 12 and Filament 4.0, designed specifically for Indonesian apotec (pharmacy) needs.
 
-## About Laravel
+## 🚀 Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### 📦 **Inventory Management**
+- Complete medicine catalog with categories
+- Batch tracking with expiry dates
+- Low stock alerts and monitoring
+- Supplier management and purchase tracking
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 💊 **Medicine Database**
+- Generic and brand name tracking
+- Dosage forms and strengths
+- Prescription requirements
+- Category organization
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 👥 **Customer Management**
+- Patient records and medical history
+- Allergy and medical condition tracking
+- Prescription history
 
-## Learning Laravel
+### 📋 **Prescription Processing**
+- Digital prescription management
+- Doctor verification
+- Dosage instructions tracking
+- Prescription to sales conversion
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 🛒 **Point of Sale (POS)**
+- Complete sales management
+- Multiple payment methods
+- Receipt generation
+- Inventory deduction automation
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 📊 **Analytics & Reports**
+- Real-time inventory dashboard
+- Sales analytics
+- Expiry date monitoring
+- Stock movement tracking
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🛠️ Tech Stack
 
-## Laravel Sponsors
+- **Backend**: Laravel 12
+- **Admin Panel**: Filament 4.0
+- **Database**: PostgreSQL
+- **Frontend**: Blade Templates with Tailwind CSS
+- **Testing**: Pest PHP
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 📋 Requirements
 
-### Premium Partners
+- PHP 8.2 or higher
+- Composer
+- PostgreSQL 13+
+- Node.js & NPM
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## ⚡ Quick Start
 
-## Contributing
+### 1. Clone & Install
+```bash
+git clone <repository-url> medify
+cd medify
+composer install
+npm install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 2. Environment Setup
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-## Code of Conduct
+### 3. Database Configuration
+Update your `.env` file:
+```env
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=medify
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 4. Run Migrations & Seed Data
+```bash
+php artisan migrate
+php artisan db:seed
+```
 
-## Security Vulnerabilities
+### 5. Create Admin User
+```bash
+php artisan make:filament-user
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 6. Start Development Server
+```bash
+php artisan serve
+```
 
-## License
+Visit `http://localhost:8000/admin` to access the admin panel.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 📊 Dashboard Features
+
+### **Stock Overview Widget**
+- Total medicines count
+- Current inventory levels
+- Low stock alerts
+- Expiring items monitoring
+- Daily sales tracking
+
+### **Key Metrics**
+- 📈 Real-time inventory status
+- ⚠️ Low stock notifications
+- ⏰ Expiry date alerts
+- 💰 Sales performance
+
+## 🗂️ Database Schema
+
+### Core Tables
+- `categories` - Medicine categories
+- `medicines` - Medicine catalog
+- `suppliers` - Supplier information
+- `customers` - Patient records
+- `inventories` - Stock management
+- `stock_movements` - Inventory tracking
+- `prescriptions` - Prescription management
+- `prescription_items` - Prescription details
+- `sales` - Sales transactions
+- `sale_items` - Sale line items
+
+## 🎨 Admin Interface
+
+Built with Filament 4.0, featuring:
+- **Modern UI/UX** with Tailwind CSS
+- **Responsive Design** for all devices
+- **Role-based Access Control**
+- **Advanced Data Tables** with filtering and search
+- **Rich Form Components**
+- **Real-time Notifications**
+
+## 🔧 Development
+
+### Running Tests
+```bash
+php artisan test
+```
+
+### Code Style
+```bash
+./vendor/bin/pint
+```
+
+### Asset Compilation
+```bash
+npm run dev
+# or for production
+npm run build
+```
+
+## 📖 Usage Guide
+
+### Adding New Medicine
+1. Navigate to **Medicines** → **Create**
+2. Fill in medicine details (name, category, dosage, etc.)
+3. Set minimum stock level for alerts
+4. Mark if prescription is required
+
+### Managing Inventory
+1. Go to **Inventory** → **Create**
+2. Select medicine and supplier
+3. Enter batch details and quantities
+4. Set cost and selling prices
+
+### Processing Sales
+1. Access **Sales** → **Create**
+2. Add customer (optional) and prescription (if applicable)
+3. Select medicines and quantities
+4. Choose payment method and complete sale
+
+## 🔒 Security Features
+
+- User authentication and authorization
+- Role-based access control
+- Audit logging for critical operations
+- Data validation and sanitization
+
+## 🌐 Localization
+
+Currently supports:
+- English (default)
+- Indonesian locale formatting
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📞 Support
+
+For support and questions:
+- Create an issue on GitHub
+- Contact: support@medify.com
+
+---
+
+**Built with ❤️ for Indonesian pharmacies**
