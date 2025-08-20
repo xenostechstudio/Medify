@@ -9,6 +9,7 @@ use App\Filament\Resources\Sales\Schemas\SaleForm;
 use App\Filament\Resources\Sales\Tables\SalesTable;
 use App\Models\Sale;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -26,7 +27,9 @@ class SaleResource extends Resource
     
     protected static ?string $pluralModelLabel = 'Sales';
     
-    protected static ?int $navigationSort = 6;
+    protected static ?int $navigationSort = 2;
+    
+    protected static UnitEnum|string|null $navigationGroup = 'Inventory & Operations';
 
     public static function form(Schema $schema): Schema
     {

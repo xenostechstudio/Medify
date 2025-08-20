@@ -9,6 +9,7 @@ use App\Filament\Resources\Suppliers\Schemas\SupplierForm;
 use App\Filament\Resources\Suppliers\Tables\SuppliersTable;
 use App\Models\Supplier;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -26,7 +27,9 @@ class SupplierResource extends Resource
     
     protected static ?string $pluralModelLabel = 'Suppliers';
     
-    protected static ?int $navigationSort = 3;
+    protected static ?int $navigationSort = 1;
+    
+    protected static UnitEnum|string|null $navigationGroup = 'Business Partners';
 
     public static function form(Schema $schema): Schema
     {

@@ -9,6 +9,7 @@ use App\Filament\Resources\Medicines\Schemas\MedicineForm;
 use App\Filament\Resources\Medicines\Tables\MedicinesTable;
 use App\Models\Medicine;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -27,6 +28,8 @@ class MedicineResource extends Resource
     protected static ?string $pluralModelLabel = 'Medicines';
     
     protected static ?int $navigationSort = 2;
+    
+    protected static UnitEnum|string|null $navigationGroup = 'Medicine Management';
 
     public static function form(Schema $schema): Schema
     {

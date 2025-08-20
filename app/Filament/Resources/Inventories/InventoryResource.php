@@ -9,6 +9,7 @@ use App\Filament\Resources\Inventories\Schemas\InventoryForm;
 use App\Filament\Resources\Inventories\Tables\InventoriesTable;
 use App\Models\Inventory;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -26,7 +27,9 @@ class InventoryResource extends Resource
     
     protected static ?string $pluralModelLabel = 'Inventory';
     
-    protected static ?int $navigationSort = 5;
+    protected static ?int $navigationSort = 1;
+    
+    protected static UnitEnum|string|null $navigationGroup = 'Inventory & Operations';
 
     public static function form(Schema $schema): Schema
     {
